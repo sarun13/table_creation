@@ -1,0 +1,138 @@
+Question 1:	
+Create a Database product_db.	
+
+Create Database product_db;
+
+
+			
+Question 2:			
+Create a table with the name "product" with the following columns			
+product_id - integer			
+	product - string - size 10		
+	quantity - integer		
+	price - integer		
+	purcahase_cost - integer		
+estimated_sale_price - float			
+		
+create table product ( product_id varchar(10),product varchar(10),quantity integer,price integer,purcahase_cost integer,estimated_sale_price float);
+
+Question 3:			
+Display all column names and their datatype and size in product.			
+
+desc product;
+
+
+
+				
+Question 4:				
+Insert the below two records into product table .				
+-- 1st record with values				
+			-- product_id : 1	
+			-- Product : PayCard	
+			-- Quantity: 2	
+			-- price : 300	
+			-- Puchase_cost : 8000	
+			-- estimated_sale_price: 9000.56	
+-- 2nd record with values --				
+			-- product_id : 2	
+			-- Product : PayPoints	
+			-- Quantity: 4	
+			-- price : 200	
+			-- Puchase_cost : 7000	
+			-- estimated_sale_price: 6700.56	
+
+insert into product values ( 1,"PayCard",2,300,8000,9000.56);
+insert into product values ( 2, "PayPoint",4,200,7000,6700.56);
+
+Question 5:					
+Add a column : "location" to the existing product table with data type varchar and size 50					
+
+Alter table product add column location varchar(50);
+
+		
+Question 6:		
+Update the value of the location		
+-- update location as USA for product_id = 1		
+-- update location as India for product_id = 2		
+
+ update Product set location ="USA" where product_id = 1;
+update product set location ="India" where product_id = 2;
+
+			
+Question 7:			
+What is the value of location for product : ‘PayCard’?			
+ 
+ select location from product where product = "PayCard";
+ 
+		
+Question 8:		
+update the product column to size of 25		
+		
+alter table product 
+modify product varchar(25);
+
+
+Question 9:				
+Reduce the size of the location field from 50 to 20 and check if it is possible.				
+
+alter table product
+modify location varchar(20);		
+						
+	Question 10:			
+Update the quantity information of ‘PayCard’ product details .			
+-- For ‘PayCard’ product, Update the quantity from 2 to 10			
+
+update product set quantity = 10 where product = "PayCard";		
+
+
+			Question 11:				
+insert one more row/record to the table				
+record with values				
+			-- product_id : 4	
+			-- Product : Creditcard	
+			-- Quantity: 2	
+			-- price : 500	
+			-- Puchase_cost : 900	
+			-- estimated_sale_price: 750	
+			-- location : India	
+			
+insert into product values (4,Creditcard,2,500,900,750,India);			
+			
+			
+	Question 12:				
+insert below two row/record to the table by using one query				
+record with values				
+	1)		-- product_id : 5	
+			-- Product : debitcard	
+			-- Quantity: 4	
+			-- price : 500	
+			-- Puchase_cost : 2000	
+			-- estimated_sale_price: 1850	
+			-- location : UK	
+				
+	2) -- product_id : 6			
+			-- Product : buyback	
+			-- Quantity: 20	
+			-- price : 500	
+			-- Puchase_cost : 10000	
+			-- estimated_sale_price: 9800.95	
+			-- location : USA	
+		
+insert into product ( product_id ,product ,quantity ,price ,purcahase_cost ,estimated_sale_price , location )
+values (5,"debitcard",4,500,2000,1850,"UK"),
+       (6 ,"buyback",20,500,10000,9800.95," USA");           
+Question 13:			
+add a column zip_code to the product table			
+
+
+alter table product add column zip_code integer NOT NULL;	
+
+					
+Question 14:					
+update zip_code to the product table by some random unique zip code to the product					
+
+update product set zip_code = 23456 where product= "PayCard";
+update product set zip_code = 08765 where product= "PayPoints";
+update product set zip_code = 98765 where product= "Creditcard";
+update product set zip_code = 23459 where product= "debitcard";
+update product set zip_code = 77688 where product= "buyback"	;
